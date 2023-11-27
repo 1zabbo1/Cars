@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Play</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #car {
+            position: absolute;
+            width: 100px; 
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="car" src="car.png" alt="Car">
+
+    <script>
+        var car = document.getElementById('car');
+
+        var posX = 0;
+        var posY = 0;
+
+        document.addEventListener('mousemove', function (e) {
+            posX = e.clientX;
+            posY = e.clientY;
+
+            car.style.left = posX + 'px';
+            car.style.top = posY + 'px';
+        });
+
+        document.addEventListener('click', function () {
+            if (car.style.width === '100px') {
+                car.style.width = '200px';
+            } else {
+                car.style.width = '100px';
+            }
+        });
+    </script>
+
+</body>
+</html>
